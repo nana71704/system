@@ -1,35 +1,21 @@
+### 📊 시스템 유스케이스 다이어그램
+
+```mermaid
 useCaseDiagram
     actor "사용자 (User)" as User
 
     package "스마트 혜택 가계부 시스템" {
-        %% 거래 관리 관련
         usecase "지출/수입 내역 관리 (CRUD)" as UC1
-        usecase "카테고리별 내역 필터링" as UC1_1
-
-        %% 금융 지능 관련
         usecase "카드 혜택 자동 계산 및 기록" as UC2
-        usecase "카드별 전월 실적 달성도 조회" as UC2_1
-        usecase "최적 카드 비교 시뮬레이션" as UC2_2
-
-        %% 데이터 분석 관련
-        usecase "소비 페르소나 진단 결과 확인" as UC3
-        usecase "지출 속도 및 예산 알림 확인" as UC4
-        usecase "소비 통계 차트 시각화" as UC5
-
-        %% 인프라 관련
+        usecase "최적 카드 비교 시뮬레이션" as UC3
+        usecase "소비 페르소나 진단 확인" as UC4
+        usecase "지출 속도 알림 확인" as UC5
         usecase "CSV 데이터 백업 및 복구" as UC6
     }
 
-    %% 관계 설정
     User --> UC1
-    User --> UC1_1
-    User --> UC2_1
-    User --> UC2_2
     User --> UC3
     User --> UC4
     User --> UC5
     User --> UC6
-
-    %% 포함/확장 관계 (선택적 표현)
-    UC1 ..> UC2 : <<include>> (입력 시 자동 계산)
-    UC2_1 ..> UC4 : <<extend>> (실적 기반 알림)
+    UC1 ..> UC2 : <<include>>
