@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Finance Tracker | 혜택 분석 가계부</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>📊 Smart Finance Tracker</h1>
+            <p>3학년 1학기 전공 프로젝트 - 스마트 혜택 분석기</p>
+        </header>
+
+        <!-- [분석 엔진 영역] 상단 대시보드 -->
+        <section id="dashboard">
+            <div class="card">
+                <h3>이번 달 총 지출</h3>
+                <p id="total-spending">0원</p>
+            </div>
+            <div class="card">
+                <h3>절약한 혜택 총액</h3>
+                <p id="total-benefit">0원</p>
+            </div>
+            <div class="card">
+                <h3>나의 소비 페르소나</h3>
+                <p id="user-persona">데이터 부족</p>
+            </div>
+        </section>
+
+        <!-- [거래 관리 영역] 입력 폼 -->
+        <section id="input-container">
+            <form id="transaction-form">
+                <div class="input-group">
+                    <input type="date" id="date" required>
+                    <select id="category" required>
+                        <option value="">카테고리 선택</option>
+                        <option value="식비">식비</option>
+                        <option value="편의점">편의점</option>
+                        <option value="교통">교통</option>
+                        <option value="쇼핑">쇼핑</option>
+                    </select>
+                    <input type="text" id="description" placeholder="내용 (예: 점심 식사)" required>
+                    <input type="number" id="amount" placeholder="금액" required>
+                    <select id="card-select" required>
+                        <!-- JS에서 동적으로 생성될 예정 -->
+                    </select>
+                    <button type="submit" id="add-btn">내역 추가</button>
+                </div>
+            </form>
+            <div id="alert-message" class="hidden"></div>
+        </section>
+
+        <!-- [리스트 영역] 내역 출력 -->
+        <section id="list-container">
+            <h3>최근 소비 내역</h3>
+            <table id="transaction-table">
+                <thead>
+                    <tr>
+                        <th>날짜</th>
+                        <th>카테고리</th>
+                        <th>내용</th>
+                        <th>금액</th>
+                        <th>사용카드</th>
+                        <th>혜택금액</th>
+                        <th>삭제</th>
+                    </tr>
+                </thead>
+                <tbody id="transaction-list">
+                    <!-- JS 렌더링 영역 -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
